@@ -17,26 +17,26 @@
 * {
   box-sizing: border-box;
 }
-	
+
 html {
-	font-size: 16px; /* sets the base font size */
-	font-weight: 600;
+  font-size: 16px; /* sets the base font size */
+  font-weight: 600;
   height: 100%;
 }
-	
+
 body {
   background-image: url('../images/header-bg.png');
   background-position: right -7%;
   background-repeat: no-repeat;
   background-size: 66%;
-	color: #4b4b4b;
-	font-family: 'Poppins', sans-serif;
-	font-size: 1rem; /* sets overall font size to equivalent of 16px */
-	line-height: 1.88;
+  color: #4b4b4b;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem; /* sets overall font size to equivalent of 16px */
+  line-height: 1.88;
 }
 
 img {
-	height: auto;
+  height: auto;
   max-width: 100%;
 }
 
@@ -118,7 +118,7 @@ h2.section-heading > span span {
 .container {
   margin: 0 auto;
   max-width: 1448px;
-  padding: 0 24px
+  padding: 0 24px;
 }
 
 .button {
@@ -138,12 +138,18 @@ h2.section-heading > span span {
 }
 
 .button:hover {
-  transform: scale(1.05)
+  transform: scale(1.05);
+}
+
+.button--white {
+  background-image: url('../images/button_white.svg');
+  color: #ef4037;
 }
 
 /* ---------------- HEADER ---------------- */
 
 header {
+  padding-bottom: 24px;
   position: relative;
   z-index: 1;
 }
@@ -187,7 +193,7 @@ header .container h2 {
   line-height: 1.33;
   max-width: 800px;
   position: relative;
-  text-shadow: 0 0 8px rgba(255,255,255,0.7);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
   width: 100%;
   z-index: 1;
 }
@@ -212,6 +218,28 @@ header .container h2 span {
   font-size: 1.25rem; /* 20px */
   letter-spacing: 1px;
   text-transform: uppercase;
+}
+
+header .social {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+header .social__icons {
+  display: flex;
+  justify-content: space-between;
+  max-width: 338.59px;
+  width: 100%;
+}
+
+header .social__icons img {
+  display: block;
+  transition: transform 300ms ease;
+}
+
+header .social__icons img:hover {
+  transform: scale(1.2);
 }
 
 /* ---------------- LIVE STREAM ---------------- */
@@ -246,16 +274,54 @@ header .container h2 span {
 }
 
 .live-stream__chat iframe {
-  height: 100%
+  height: 100%;
 }
 
-.live-stream__chat .button{
+.live-stream__chat .button {
   display: block;
+}
+
+/* ---------------- CTAs ---------------- */
+
+.ctas {
+  background-image: url('../images/jagged-shape_orange.png');
+  background-repeat: repeat-x;
+  padding-top: 40px;
+}
+
+.ctas__inner {
+  background-color: #f8931d;
+  background-image: url('../images/cta-star-bg.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 48px 0 60px;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 900px;
+  padding: 0 24px;
+}
+
+.cta-buttons .button--white {
+  align-items: center;
+  display: flex;
+  font-size: 26px;
+  padding: 16px 40px;
+}
+
+.cta-buttons .button--white img {
+  height: 30px;
+  margin-left: 10px;
+  width: 35px;
 }
 
 /* ---------------- PAST STREAMS ---------------- */
 
 .past-streams {
+  background-color: #f8931d;
   background-image: url('../images/jagged-shape.png');
   background-repeat: repeat-x;
   padding-top: 40px;
@@ -263,6 +329,7 @@ header .container h2 span {
 
 .past-streams h2.section-heading {
   color: #ef4037;
+  margin: 0;
 }
 
 .past-streams__inner {
@@ -271,6 +338,34 @@ header .container h2 span {
 
 .past-streams__inner .container {
   padding-left: 48px;
+}
+
+.past-streams__season-tabs {
+  font-family: 'Paytone One', sans-serif;
+  padding: 50px 24px 75px;
+  text-align: center;
+}
+
+.past-streams__season-tabs button {
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  padding: 12px 20px;
+  text-transform: uppercase;
+}
+
+.past-streams__season-tabs button.season-tab--selected {
+  background-image: url('../images/tab_blue.svg');
+}
+
+.past-streams__season {
+  display: none;
+}
+
+.past-streams__season--selected {
+  display: block;
 }
 
 .past-streams__item {
@@ -302,7 +397,7 @@ header .container h2 span {
   top: -12%;
   transform: rotate(-2deg);
   transition: transform 300ms ease;
-  width: 100%
+  width: 100%;
 }
 
 .past-streams__item-img:hover:after {
@@ -424,6 +519,7 @@ footer {
 /* ---------------- MEDIA QUERIES ---------------- */
 
 @media only screen and (max-width: 1400px) {
+  .ctas,
   .past-streams {
     background-size: 100%;
     padding-top: 2%;
@@ -433,6 +529,10 @@ footer {
 @media only screen and (max-width: 1100px) {
   body {
     background-position: right top;
+  }
+
+  .cta-buttons {
+    max-width: 850px;
   }
 }
 
@@ -473,7 +573,7 @@ footer {
   header .container h1 {
     left: -40px;
   }
-  
+
   header .container h2 {
     font-size: 1.5625rem; /* 25px */
   }
@@ -488,15 +588,34 @@ footer {
   header .container h2 span {
     font-size: 1rem;
   }
+
+  header .social__icons {
+    max-width: 300px;
+  }
+
+  header .social__icons img {
+    width: 35px;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .cta-buttons {
+    max-width: 750px;
+  }
+
+  .cta-buttons .button--white {
+    font-size: 23px;
+    padding: 16px 35px;
+  }
+
+  .past-streams__season-tabs button {
+    font-size: 20px;
+  }
 }
 
 @media only screen and (max-width: 800px) {
   .container {
     padding: 0 20px;
-  }
-
-  header {
-    padding-bottom: 24px;
   }
 
   header .container h1:after {
@@ -509,6 +628,14 @@ footer {
 
   header .container h2 span {
     font-size: 0.75rem; /* 12px */
+  }
+
+  header .social__icons {
+    max-width: 260px;
+  }
+
+  header .social__icons img {
+    width: 30px;
   }
 
   h2.section-heading {
@@ -531,8 +658,9 @@ footer {
     width: 183px;
   }
 
+  .ctas__inner,
   .past-streams__inner {
-    padding: 48px 0
+    padding: 48px 0;
   }
 
   .past-streams__inner .container {
@@ -559,6 +687,13 @@ footer {
   .sign-up__info {
     max-width: 600px;
     width: 100%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .cta-buttons .button--white {
+    font-size: 20px;
+    padding: 12px 20px;
   }
 }
 
@@ -600,6 +735,7 @@ footer {
     width: 131px;
   }
 
+  .ctas,
   .past-streams {
     background-size: 600px;
     padding-top: 17px;
@@ -630,6 +766,31 @@ footer {
 
   header .container h2 {
     width: auto;
+  }
+
+  header .social {
+    padding: 40px 0 20px;
+    position: relative;
+    z-index: 999;
+  }
+
+  .ctas__inner {
+    background-image: url('../images/cta-star-bg_mobile.png');
+    background-position: center 40px;
+    background-size: contain;
+  }
+
+  .cta-buttons {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .cta-buttons a:first-child.button--white {
+    margin-bottom: 24px;
+  }
+
+  .past-streams__season-tabs button {
+    font-size: 18px;
   }
 }
 
